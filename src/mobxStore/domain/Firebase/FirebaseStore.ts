@@ -44,14 +44,11 @@ export class FirebaseStore {
 
       // Initialize i18n with the fetched resources
       const resources = {
-        en: { translation: this.remoteConfigValues.haanaaRnEN },
-        hi: { translation: this.remoteConfigValues.haanaaRnHI },
+        en: { translation: this.remoteConfigValues.kadamEN },
+        hi: { translation: this.remoteConfigValues.kadamHI },
       };
       
       initI18n(resources);
-
-
-      console.log("Remote +++", (JSON.stringify(this.remoteConfigValues.haanaaRnHI)));
 
     } catch (error) {
       console.error("Error fetching remote config:", error);
