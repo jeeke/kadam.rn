@@ -1,3 +1,4 @@
+import LoginScreen from '@/src/features/login/screens/LoginScreen';
 import MainScreen from '@/src/screens/MainScreen/MainScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
@@ -22,7 +23,7 @@ export default function RootStack() {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName={RootStackScreens.SplashScreen}>
+      initialRouteName={RootStackScreens.Login}>
       <Stack.Screen
         name={RootStackScreens.RoughScreen}
         component={RoughScreen}
@@ -30,6 +31,10 @@ export default function RootStack() {
       <Stack.Screen
         name={RootStackScreens.MainScreen}
         component={MainScreen}
+      />
+      <Stack.Screen
+        name={RootStackScreens.Login}
+        component={LoginScreen}
       />
       <Stack.Screen
         name={RootStackScreens.SplashScreen}

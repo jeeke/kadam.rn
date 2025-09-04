@@ -33,8 +33,8 @@ export default {
       backgroundColor: "#000000"
     },
     name: selectedEnvironment.name,
-    slug: "kadam-rn",
-    owner: "kadam",
+    slug: "kadam",
+    owner: "kadam_guru",
     version: versionNumber,
     runtimeVersion: versionNumber,
     orientation: "portrait",
@@ -107,6 +107,9 @@ export default {
     extra: {
       baseURL: selectedEnvironment.baseURL,
       environment: selectedEnvironment.environment,
+      eas: {
+        projectId: "424bd4dc-c6df-42d4-b22a-053ffff20e15"
+      }, 
     },
     backgroundColor: '#000000',
     updates: {
