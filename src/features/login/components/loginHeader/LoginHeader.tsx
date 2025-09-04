@@ -1,10 +1,13 @@
 import AppText from '@/src/components/ui/AppText/AppText'
 import AppView from '@/src/components/ui/AppView/AppView'
+import withRootStore from '@/src/HOCs/withRootStore'
 import { Localizations } from '@/src/locales/localizationTypes'
-import React from 'react'
+import { PropsWithStore } from '@/src/mobxStore/RootStore'
+import { ThemeIcons } from '@/src/theme/Icons'
+import React, { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const LoginHeader = () => {
+const LoginHeader:FC<PropsWithStore<{}>> = () => {
     const { t } = useTranslation()
     return (
         <AppView>
@@ -14,12 +17,9 @@ const LoginHeader = () => {
             <AppText textAlign='center' type={'helveticaMedium16px'}>
                 {t(Localizations.login.login_or_signup)}
             </AppText>
-             <AppText textAlign='center' style={[{fontFamily:'Vynce', fontWeight: 900, fontSize: 20  }]} >
-                {/* {t(Localizations.login.login_or_signup)} */}
-                Continue
-            </AppText>
+            <ThemeIcons.ArrowRightUpBlack/>
         </AppView>
     )
 }
 
-export default LoginHeader
+export default withRootStore(LoginHeader)
