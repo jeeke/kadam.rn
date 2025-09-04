@@ -89,6 +89,17 @@ export default {
         }
       ],
       "expo-font",  
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static",
+          }
+        }
+      ],
+      [
+        "./withFixedFirebase.js"
+      ]
     ],
     experiments: {
       typedRoutes: true
