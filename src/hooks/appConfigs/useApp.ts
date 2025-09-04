@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-
+import * as Font from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
+import { useEffect, useState } from "react";
 
 import RootStore from '@/src/mobxStore/RootStore';
 import { useLinkingActions } from './useLinkingActions';
@@ -10,29 +10,29 @@ export const useApp = () => {
     const [isLoadingComplete, setLoadingComplete] = useState(false);
     useLinkingActions()
 
-    // const [loaded, error] = Font.useFonts({
-    //     // Helvetica Now Display
-    //     "HelveticaNowDisplay-Black": require("../../../assets/fonts/HelveticaNowDisplay-Black.ttf"),
-    //     "HelveticaNowDisplay-Bold": require("../../../assets/fonts/HelveticaNowDisplay-Bold.ttf"),
-    //     "HelveticaNowDisplay-ExtraBold": require("../../../assets/fonts/HelveticaNowDisplay-ExtraBold.ttf"),
-    //     "HelveticaNowDisplay-Hairline": require("../../../assets/fonts/HelveticaNowDisplay-Hairline.ttf"),
-    //     "HelveticaNowDisplay-Light": require("../../../assets/fonts/HelveticaNowDisplay-Light.ttf"),
-    //     "HelveticaNowDisplay-Medium": require("../../../assets/fonts/HelveticaNowDisplay-Medium.ttf"),
-    //     "HelveticaNowDisplay-Thin": require("../../../assets/fonts/HelveticaNowDisplay-Thin.ttf"),
-    //     "HelveticaNowDisplay-Regular": require("../../../assets/fonts/HelveticaNowDisplay-Regular.ttf"),
+    const [loaded, error] = Font.useFonts({
+        // Helvetica Now Display
+        "HelveticaNowDisplay-Black": require("../../../assets/fonts/HelveticaNowDisplay-Black.ttf"),
+        "HelveticaNowDisplay-Bold": require("../../../assets/fonts/HelveticaNowDisplay-Bold.ttf"),
+        "HelveticaNowDisplay-ExtraBold": require("../../../assets/fonts/HelveticaNowDisplay-ExtraBold.ttf"),
+        "HelveticaNowDisplay-Hairline": require("../../../assets/fonts/HelveticaNowDisplay-Hairline.ttf"),
+        "HelveticaNowDisplay-Light": require("../../../assets/fonts/HelveticaNowDisplay-Light.ttf"),
+        "HelveticaNowDisplay-Medium": require("../../../assets/fonts/HelveticaNowDisplay-Medium.ttf"),
+        "HelveticaNowDisplay-Thin": require("../../../assets/fonts/HelveticaNowDisplay-Thin.ttf"),
+        "HelveticaNowDisplay-Regular": require("../../../assets/fonts/HelveticaNowDisplay-Regular.ttf"),
 
-    //     // Murs Gothic
-    //     "MursGothic-WideDark": require("../../../assets/fonts/MursGothic-WideDark.otf"),
+        // Murs Gothic
+        "MursGothic-WideDark": require("../../../assets/fonts/MursGothic-WideDark.otf"),
 
-    //     // Palaroid
-    //     "Palaroid": require("../../../assets/fonts/Palaroid.ttf"),
-    // });
+        // Palaroid
+        "Palaroid": require("../../../assets/fonts/Palaroid.ttf"),
+    });
 
-    // useEffect(() => {
-    //     if (loaded || error) {
-    //         SplashScreen.hideAsync();
-    //     }
-    // }, [loaded, error]);
+    useEffect(() => {
+        if (loaded || error) {
+            SplashScreen.hideAsync();
+        }
+    }, [loaded, error]);
 
 
 
@@ -51,5 +51,5 @@ export const useApp = () => {
     useEffect(() => {
         prepare();
     }, []);
-    return { rootStore, error: false, loaded: true }
+    return { rootStore, error, loaded }
 }
