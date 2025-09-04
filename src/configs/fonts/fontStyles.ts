@@ -1,4 +1,4 @@
-export type FontFamily = 'helvetica' 
+export type FontFamily = 'helvetica' | 'vynce'
 
 export type FontWeight =
   | 'black'
@@ -8,9 +8,8 @@ export type FontWeight =
   | 'light'
   | 'medium'
   | 'thin'
-  | 'wideDark'
   | 'regular'
-  | 'palaroid'
+
 
 export type FontSize = 8 | 10 | 12 | 14 | 16 | 18 | 20 | 24 | 32 | 38 | 40 | 48 | 72;
 
@@ -22,6 +21,7 @@ export interface TypographyStyle {
 }
 
 export const FONT_FAMILIES: Record<FontFamily, Record<FontWeight, string>> = {
+
   helvetica: {
     black: 'HelveticaNowDisplay-Black',
     bold: 'HelveticaNowDisplay-Bold',
@@ -31,11 +31,14 @@ export const FONT_FAMILIES: Record<FontFamily, Record<FontWeight, string>> = {
     medium: 'HelveticaNowDisplay-Medium',
     thin: 'HelveticaNowDisplay-Thin',
     regular:"HelveticaNowDisplay-Regular",
-    wideDark: '',
-    palaroid:''
+  }, 
+  // @ts-ignore
+  vynce: {
+    black : 'Vynce'
   }
 };
 
+// @ts-ignore
 const CUSTOM_LINE_HEIGHTS: Record<FontFamily, Record<FontSize, number>> = {
   helvetica: {
     8: 10,

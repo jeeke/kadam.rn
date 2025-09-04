@@ -63,7 +63,7 @@ export default function AppText({
   ...rest
 }: AppTextType) {
 
-  const families = ['helvetica', 'mursGothic'] as const;
+  const families = ['helvetica', 'vynce'] as const;
   function computeAppliedStyle(): TextStyle {
     if (!weight) return fontStyles[type] as TextStyle;
     const family = families.find((f) => type.startsWith(f));

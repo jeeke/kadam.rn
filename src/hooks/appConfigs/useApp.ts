@@ -21,11 +21,8 @@ export const useApp = () => {
         "HelveticaNowDisplay-Thin": require("../../../assets/fonts/HelveticaNowDisplay-Thin.ttf"),
         "HelveticaNowDisplay-Regular": require("../../../assets/fonts/HelveticaNowDisplay-Regular.ttf"),
 
-        // Murs Gothic
-        "MursGothic-WideDark": require("../../../assets/fonts/MursGothic-WideDark.otf"),
-
-        // Palaroid
-        "Palaroid": require("../../../assets/fonts/Palaroid.ttf"),
+        // Vynce
+        "Vynce": require("../../../assets/fonts/Vynce.ttf"),
     });
 
     useEffect(() => {

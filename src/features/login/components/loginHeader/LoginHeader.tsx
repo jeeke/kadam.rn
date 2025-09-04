@@ -14,6 +14,10 @@ const LoginHeader = () => {
             <AppText textAlign='center' type={'helveticaMedium16px'}>
                 {t(Localizations.login.login_or_signup)}
             </AppText>
+             <AppText textAlign='center' style={[{fontFamily:'Vynce', fontWeight: 900, fontSize: 20  }]} >
+                {/* {t(Localizations.login.login_or_signup)} */}
+                Continue
+            </AppText>
         </AppView>
     )
 }

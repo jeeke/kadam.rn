@@ -14,7 +14,7 @@ const environmentConfig = {
     baseURL: '',
     package: 'com.kadam',
     environment: "production",
-  }, 
+  },
   uat: {
     name: "Kadam",
     baseURL: '',
@@ -48,7 +48,8 @@ export default {
       supportsTablet: false,
       bundleIdentifier: selectedEnvironment.package,
       buildNumber: versionNumber,
-     
+      googleServicesFile: `./src/firebase/${environment}/GoogleService-Info.plist`
+
     },
     android: {
       newArchEnabled: true,
@@ -60,7 +61,7 @@ export default {
       permissions: [
         "ACCESS_NETWORK_STATE",
       ],
-     
+      googleServicesFile: `./src/firebase/${environment}/google-services.json`
     },
     web: {
       bundler: "metro",
@@ -68,6 +69,17 @@ export default {
       favicon: "./assets/images/adaptive-icon.png"
     },
     plugins: [
+      [
+        "@react-native-firebase/app",
+        {
+          ios: {
+            googleServicesFile: `./src/firebase/${environment}/GoogleService-Info.plist`
+          },
+          android: {
+            googleServicesFile: `./src/firebase/${environment}/google-services.json`
+          }
+        }
+      ],
       "expo-secure-store",
       "expo-router",
       [
@@ -88,7 +100,7 @@ export default {
           }
         }
       ],
-      "expo-font",  
+      "expo-font",
       [
         "expo-build-properties",
         {
@@ -109,7 +121,7 @@ export default {
       environment: selectedEnvironment.environment,
       eas: {
         projectId: "424bd4dc-c6df-42d4-b22a-053ffff20e15"
-      }, 
+      },
     },
     backgroundColor: '#000000',
     updates: {
