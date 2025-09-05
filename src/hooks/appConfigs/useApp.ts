@@ -2,16 +2,12 @@ import * as Font from "expo-font";
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useState } from "react";
 
-import { MMKV_KEYS } from "@/src/constants/mmkvConstants";
 import RootStore from '@/src/mobxStore/RootStore';
-import MMKVStorage from "@/src/utils/storages/MMKVStorage/MMKVStorage";
-import i18next from "i18next";
 import { useLinkingActions } from './useLinkingActions';
 
 export const useApp = () => {
     const [rootStore] = useState(RootStore)
     const [isLoadingComplete, setLoadingComplete] = useState(false);
-    const appLanguage = MMKVStorage.mmkvGetItem(MMKV_KEYS.APP_LANGUAGE) || 'en';
     useLinkingActions()
 
     const [loaded, error] = Font.useFonts({
@@ -47,12 +43,5 @@ export const useApp = () => {
         }
     }
 
-    useEffect(() => {
-        prepare();
-        (async () => {
-            await rootStore.firebaseStore.fetchRemoteConfig()
-            i18next.changeLanguage(appLanguage);
-        })()
-    }, []);
     return { rootStore, error, loaded }
 }

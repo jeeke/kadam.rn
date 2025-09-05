@@ -1,16 +1,20 @@
 
 
 
+import { MMKV_KEYS } from "@/src/constants/mmkvConstants"
 import { RootStoreType } from "@/src/mobxStore/RootStore"
 import { RootStackScreens } from "@/src/navigation/RootStack/types"
 
 import { USER_KEY } from "@/src/services/token.service"
 import { navigate, resetAndNavigate } from "@/src/utils/NavigationUtils"
+import MMKVStorage from "@/src/utils/storages/MMKVStorage/MMKVStorage"
 import { getSecureItem } from "@/src/utils/storages/SecuredStorage/SecuredStorage"
+import i18next from "i18next"
 import { useEffect } from "react"
 
 export const useSplash = (rootStore: RootStoreType) => {
     const { loginStore, authStore } = rootStore!
+    const appLanguage = MMKVStorage.mmkvGetItem(MMKV_KEYS.APP_LANGUAGE) || 'en';
 
     let user: any
     const checkedUserLoggedIn = async () => {
@@ -27,7 +31,7 @@ export const useSplash = (rootStore: RootStoreType) => {
     const handleNavigation = async () => {
         try {
             if (!!user) {
-               resetAndNavigate(RootStackScreens.MainScreen)
+                resetAndNavigate(RootStackScreens.MainScreen)
             } else {
                 navigate(RootStackScreens.MainScreen)
             }
@@ -42,7 +46,14 @@ export const useSplash = (rootStore: RootStoreType) => {
         let timer = setTimeout(async () => {
             // await checkedUserLoggedIn()
             // await handleNavigation()
-               resetAndNavigate(RootStackScreens.MainScreen)
+
+            (async () => {
+                await rootStore.firebaseStore.fetchRemoteConfig()
+                i18next.changeLanguage(appLanguage);
+                resetAndNavigate(RootStackScreens.MainScreen)
+            })()
+
+
         }, 2800)
         return () => {
             clearTimeout(timer)

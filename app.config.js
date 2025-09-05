@@ -28,6 +28,11 @@ const selectedEnvironment = environmentConfig[environment];
 
 export default {
   expo: {
+    "androidNavigationBar": {
+      "backgroundColor": "#000000",
+      "barStyle": "light-content",
+      "translucent": true
+    },
     splash: {
       resizeMode: "contain",
       backgroundColor: "#000000"

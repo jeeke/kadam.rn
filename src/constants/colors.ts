@@ -57,5 +57,7 @@ export const COLORS = {
   borderColor_3E3E3E: '#3E3E3E', 
 
   textColor_8E8E8E : '#8E8E8E',
+  textColor_717171 : '#717171',
+
 
 };
