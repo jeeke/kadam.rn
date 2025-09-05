@@ -9,7 +9,6 @@ import { USER_KEY } from "@/src/services/token.service"
 import { navigate, resetAndNavigate } from "@/src/utils/NavigationUtils"
 import MMKVStorage from "@/src/utils/storages/MMKVStorage/MMKVStorage"
 import { getSecureItem } from "@/src/utils/storages/SecuredStorage/SecuredStorage"
-import i18next from "i18next"
 import { useEffect } from "react"
 
 export const useSplash = (rootStore: RootStoreType) => {
@@ -49,8 +48,8 @@ export const useSplash = (rootStore: RootStoreType) => {
 
             (async () => {
                 try {
-                    await rootStore.firebaseStore.fetchRemoteConfig()
-                    i18next.changeLanguage(appLanguage);
+                    // await rootStore.firebaseStore.fetchRemoteConfig()
+                    // i18next.changeLanguage(appLanguage);
                     resetAndNavigate(RootStackScreens.Login)
                 } catch (error) {
                    console.log("Error remote config:", error)

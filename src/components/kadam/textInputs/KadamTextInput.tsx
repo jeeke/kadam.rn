@@ -18,7 +18,7 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
     ...rest
 }) => {
     return (
-        <AppRow  style={[styles.wrapper, StyleSheet.flatten(style),]}>
+        <AppRow  style={[styles.wrapper, StyleSheet.flatten(style)]}>
             {leftChildren && leftChildren}
             <TextInput
                 style={[styles.inputTextStyle, inputStyle]}
@@ -48,6 +48,6 @@ const styles = StyleSheet.create({
         fontFamily: 'HelveticaNowDisplay-Regular',
         color: COLORS.white,
         fontSize: 16,
-         
+        width: (screenWidth -42) * 0.65 
     }
 })

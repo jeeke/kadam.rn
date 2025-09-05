@@ -22,6 +22,18 @@ export class LoginStore {
   }
 
   @action
+  async callSendOtp(){
+    this.isLoading = true
+    try {
+      //  await sendOtp()
+    } catch (error) {
+         console.log('Error sending otp:', error)
+    }finally{
+      // this.isLoading = false
+    }
+  }
+
+  @action
   async logout() {
     this.isAuthenticated = false;
     this.error = null;

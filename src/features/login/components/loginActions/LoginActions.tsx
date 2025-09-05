@@ -9,17 +9,19 @@ import { Localizations } from '@/src/locales/localizationTypes'
 import { PropsWithStore } from '@/src/mobxStore/RootStore'
 import { ThemeIcons } from '@/src/theme/Icons'
 import { screenWidth } from '@/src/utils/resizing'
-import React, { FC } from 'react'
+import React, { FC, useCallback } from 'react'
 import { useTranslation } from 'react-i18next'
 import { StyleSheet } from 'react-native'
 
 const LoginActions: FC<PropsWithStore<{}>> = ({ rootStore }) => {
     const { loginStore } = rootStore!
     const { t } = useTranslation()
+    const onChangeText = useCallback((t:string)=>{loginStore.setMobileNumber(t)},[])
+    const handleContinue = useCallback(()=>{ loginStore.callSendOtp()},[])
     return (
         <AppView gap={8}>
-            <AppTextInput leftChildren={<CountryCode />} placeholder={'1234567890'} value={loginStore.mobileNumber} />
-            <KadamButton.Primary w={screenWidth - 42} text={t(Localizations.login.continue)} />
+            <AppTextInput maxLength={10} onChangeText={onChangeText} leftChildren={<CountryCode />} placeholder={'1234567890'} value={loginStore.mobileNumber} />
+            <KadamButton.Primary onPress={handleContinue} disabled={loginStore.isLoading} loader={loginStore.isLoading} w={screenWidth - 42} text={t(Localizations.login.continue)} />
         </AppView>
     )
 }

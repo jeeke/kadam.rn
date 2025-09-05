@@ -2,7 +2,7 @@ import { FontStylesType } from '@/src/configs/fonts/fontStyles';
 import { VynceFontStyle } from '@/src/configs/styles/styles';
 import { COLORS } from '@/src/constants/colors';
 import React, { FC } from 'react';
-import { DimensionValue, StyleSheet, TextStyle, ViewStyle } from 'react-native';
+import { ActivityIndicator, DimensionValue, StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import AppPressable, { AppPressableProps } from '../../ui/AppPressable/AppPressable';
 import AppText from '../../ui/AppText/AppText';
 
@@ -14,6 +14,8 @@ interface KadamButtonProps extends AppPressableProps {
   h?: DimensionValue
   textStyle?: TextStyle | TextStyle[]
   style?: ViewStyle | ViewStyle[]
+  disabled?: boolean
+  loader?: boolean
 }
 
 const BaseButton: React.FC<KadamButtonProps> = ({
@@ -25,19 +27,28 @@ const BaseButton: React.FC<KadamButtonProps> = ({
   h,
   textStyle,
   style,
+  disabled,
+  loader,
   ...rest
 }) => {
-  const styling: ViewStyle = {width:w, height:h}
+  const styling: ViewStyle = { width: w, height: h }
   return (
     <AppPressable
-      style={[StyleSheet.flatten(style),styling]}
+      disabled={disabled}
+      style={[StyleSheet.flatten(style), styling]}
       {...rest}
     >
-      {children ? <>
-        {children}
-      </> : <AppText type={textType} color={textColor} style={[StyleSheet.flatten(textStyle)]} >
-        {text}
-      </AppText>}
+      <>
+        {loader ? <ActivityIndicator size={24} color={COLORS.white}  /> :
+          <>
+            {children ? <>
+              {children}
+            </> : <AppText type={textType} color={textColor} style={[StyleSheet.flatten(textStyle)]} >
+              {text}
+            </AppText>}
+          </>
+        }
+      </>
     </AppPressable>
   );
 };
@@ -67,8 +78,8 @@ const styles = StyleSheet.create({
     height: 44,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingVertical: 22, 
-    borderWidth:1, 
+    paddingVertical: 22,
+    borderWidth: 1,
     borderColor: COLORS.borderColor_3E3E3E
   },
   secondary: {
@@ -80,8 +91,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#E5DFFC',
   },
-  primaryTextStyle:{
-    ...VynceFontStyle, 
+  primaryTextStyle: {
+    ...VynceFontStyle,
   },
   text: {
     color: '#fff',
