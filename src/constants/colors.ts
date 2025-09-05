@@ -10,7 +10,7 @@ export const COLORS = {
   backgroundDefault: '#F6F7F9',
   backgroundDark: '#121212',
   backgroundMuted: '#D1D5DB',
-  backgroundButton: '##F3F0FE',
+  backgroundButton: '#1A0019',
 
   // Text Colors
   textPrimary: '#121212',
@@ -49,4 +49,13 @@ export const COLORS = {
   error: '#F63434', // Reused as a bold alert color
   success: '#01A35A', // Logo green works well for success
   info: '#ADE6ED',
+
+  black: '#000', 
+  white: '#fff',
+
+  borderColor_2c2c2c: '#2C2C2C', 
+  borderColor_3E3E3E: '#3E3E3E', 
+
+  textColor_8E8E8E : '#8E8E8E',
+
 };

@@ -9,9 +9,16 @@ export class LoginStore {
   @observable error: string | null = null;
   @observable isAuthenticated: boolean = false;
 
+  @observable mobileNumber: string = ''
+
   constructor(rootStore: RootStoreType) {
     this.rootStore = rootStore
     makeAutoObservable(this);
+  }
+
+  @action
+  setMobileNumber(number: string){
+     this.mobileNumber = number
   }
 
   @action

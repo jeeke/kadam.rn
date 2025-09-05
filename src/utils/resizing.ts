@@ -26,6 +26,27 @@ const heightPercentageToDP = (heightPercent: string | number) => {
   return PixelRatio.roundToNearestPixel((screenHeight * elemHeight) / 100);
 };
 
+const BASE_WIDTH = 430;
+const BASE_HEIGHT = 932;
+
+/**
+ * Scale size horizontally based on device width
+ */
+export const scale = (size: number) => (screenWidth / BASE_WIDTH) * size;
+
+/**
+ * Scale size vertically based on device height
+ */
+export const verticalScale = (size: number) =>
+  (screenHeight / BASE_HEIGHT) * size;
+
+/**
+ * Moderate scale (more natural scaling, not too aggressive)
+ * factor = 0.5 means 50% scaling adjustment
+ */
+export const moderateScale = (size: number, factor: number = 0.5) =>
+  size + (scale(size) - size) * factor;
+
 export {
   heightPercentageToDP, screenHeight, screenWidth, widthPercentageToDP
 };
@@ -39,4 +60,6 @@ export const isAndroid = Platform.OS === 'android'
 // Get Screen Insets for ( Top, Bottom , Left , Right)
 export const screenInsets = initialWindowMetrics?.insets
 
-export const bottomInsets = isAndroid ? 16 : screenInsets?.bottom
+export const bottomInsets = isAndroid ? 0 : screenInsets?.bottom
+
+

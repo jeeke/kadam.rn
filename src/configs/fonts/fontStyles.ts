@@ -1,3 +1,5 @@
+import { responsiveFontSize } from "@/src/utils/typographyUtils";
+
 export type FontFamily = 'helvetica' | 'vynce'
 
 export type FontWeight =
@@ -85,7 +87,7 @@ function generateFontStyles(
 
       styles[styleKey] = createTypographyStyle(
         FONT_FAMILIES[fontFamily][weightKey],
-        size,
+        responsiveFontSize(size),
         lineHeight,
         '#FFFFFF'
       );

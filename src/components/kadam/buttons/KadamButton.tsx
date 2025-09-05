@@ -1,6 +1,8 @@
 import { FontStylesType } from '@/src/configs/fonts/fontStyles';
+import { VynceFontStyle } from '@/src/configs/styles/styles';
+import { COLORS } from '@/src/constants/colors';
 import React, { FC } from 'react';
-import { StyleSheet } from 'react-native';
+import { DimensionValue, StyleSheet, TextStyle, ViewStyle } from 'react-native';
 import AppPressable, { AppPressableProps } from '../../ui/AppPressable/AppPressable';
 import AppText from '../../ui/AppText/AppText';
 
@@ -8,6 +10,10 @@ interface KadamButtonProps extends AppPressableProps {
   text?: string,
   textType?: FontStylesType,
   textColor?: string
+  w?: DimensionValue
+  h?: DimensionValue
+  textStyle?: TextStyle | TextStyle[]
+  style?: ViewStyle | ViewStyle[]
 }
 
 const BaseButton: React.FC<KadamButtonProps> = ({
@@ -15,15 +21,21 @@ const BaseButton: React.FC<KadamButtonProps> = ({
   text,
   textType = "helveticaBold12px",
   textColor,
+  w = 'auto',
+  h,
+  textStyle,
+  style,
   ...rest
 }) => {
+  const styling: ViewStyle = {width:w, height:h}
   return (
     <AppPressable
+      style={[StyleSheet.flatten(style),styling]}
       {...rest}
     >
       {children ? <>
         {children}
-      </> : <AppText type={textType} color={textColor}>
+      </> : <AppText type={textType} color={textColor} style={[StyleSheet.flatten(textStyle)]} >
         {text}
       </AppText>}
     </AppPressable>
@@ -32,7 +44,7 @@ const BaseButton: React.FC<KadamButtonProps> = ({
 
 
 const Primary: FC<KadamButtonProps> = (props) => {
-  return <BaseButton {...props} style={[styles.primary, StyleSheet.flatten(props?.style)]} />
+  return <BaseButton {...props} textStyle={[styles.primaryTextStyle]} style={[styles.primary, StyleSheet.flatten(props?.style)]} />
 }
 
 const Secondary: FC<KadamButtonProps> = (props) => {
@@ -50,11 +62,14 @@ const KadamButton = {
 
 const styles = StyleSheet.create({
   primary: {
-    backgroundColor: '#5F34F6', // Primary color
+    backgroundColor: COLORS.backgroundButton, // Primary color
     borderRadius: 12,
     height: 44,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingVertical: 22, 
+    borderWidth:1, 
+    borderColor: COLORS.borderColor_3E3E3E
   },
   secondary: {
     backgroundColor: '#fff', // Secondary color
@@ -64,6 +79,9 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     borderWidth: 1,
     borderColor: '#E5DFFC',
+  },
+  primaryTextStyle:{
+    ...VynceFontStyle, 
   },
   text: {
     color: '#fff',

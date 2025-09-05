@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "597689057611",
-    "project_id": "kadam-dev",
-    "storage_bucket": "kadam-dev.firebasestorage.app"
+    "project_number": "607882092098",
+    "project_id": "kadam-dev-e7502",
+    "storage_bucket": "kadam-dev-e7502.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:597689057611:android:0247b05ab32866695f28ce",
+        "mobilesdk_app_id": "1:607882092098:android:b2b0902d0139bac63117db",
         "android_client_info": {
           "package_name": "com.kadam.dev"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAeRa_amQhAtxQDE8iusp768Dt9WfIvH10"
+          "current_key": "AIzaSyAb3igUiKiC--SH5kfTyxhvx7zQ9Jc7QM0"
         }
       ],
       "services": {

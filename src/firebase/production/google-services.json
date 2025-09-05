@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "977787560599",
-    "project_id": "kadam-35daa",
-    "storage_bucket": "kadam-35daa.firebasestorage.app"
+    "project_number": "1028294029792",
+    "project_id": "kadam-guru",
+    "storage_bucket": "kadam-guru.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:977787560599:android:63387024d0caf047557fd2",
+        "mobilesdk_app_id": "1:1028294029792:android:f49444532f5a1228e23b85",
         "android_client_info": {
           "package_name": "com.kadam"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyAD02sPWncxBpZ59caTL20edYQeBHeaGvY"
+          "current_key": "AIzaSyAiMJk41ph073BGed0cVXY9KUviryzEp4U"
         }
       ],
       "services": {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { DimensionValue, StyleSheet, View, ViewStyle } from 'react-native';
 
-interface AppViewProps {
+export interface AppViewProps {
   children?: React.ReactNode;
   style?: ViewStyle | ViewStyle[];
   alignSelf?: 'flex-start' | 'center' | 'flex-end' | 'stretch' | 'baseline' | 'auto';

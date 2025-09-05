@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyCMujKjwzXCYXOVJvPTZkm8V2t7N2wffhU</string>
+	<string>AIzaSyAj3eDRej0VDTgvkYZQnnxLwWm5rp3u-CU</string>
 	<key>GCM_SENDER_ID</key>
-	<string>977787560599</string>
+	<string>1028294029792</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.kadam</string>
 	<key>PROJECT_ID</key>
-	<string>kadam-35daa</string>
+	<string>kadam-guru</string>
 	<key>STORAGE_BUCKET</key>
-	<string>kadam-35daa.firebasestorage.app</string>
+	<string>kadam-guru.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:977787560599:ios:4fa26ec15995111b557fd2</string>
+	<string>1:1028294029792:ios:5635467bd0814324e23b85</string>
 </dict>
 </plist>

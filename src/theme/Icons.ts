@@ -1,3 +1,11 @@
+
+//@ts-nocheck
+import IndiaLogo from '../assets/icons/indiaLogo.svg';
+import KadamTextLogo from '../assets/icons/kadamTextLogo.svg';
+
 export const ThemeIcons = {
-    ArrowRightUpBlack: require('../../assets/images/arrow_right_up_black.svg')
+    Login: {
+        KadamTextLogo,
+        IndiaLogo, 
+    }
 };

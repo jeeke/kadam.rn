@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, ViewStyle } from 'react-native';
 
-interface AppRowProps {
+export interface AppRowProps {
     children: React.ReactNode;
     style?: ViewStyle | ViewStyle[];
     alignSelf?: 'flex-start' | 'center' | 'flex-end' | 'stretch';
@@ -22,9 +22,13 @@ interface AppRowProps {
     mx?: number
     my?: number
     mt?: number
+    ml?: number
+    mr?: number
     mb?: number
     w?: number,
     h?: number
+    pr?: number 
+    pl?: number 
 }
 
 const AppRow: React.FC<AppRowProps> = ({
@@ -49,6 +53,10 @@ const AppRow: React.FC<AppRowProps> = ({
     mb,
     p,
     m,
+    mr,
+    ml, 
+    pr, 
+    pl
 }) => {
     const centerStyle: ViewStyle = center ? {
         justifyContent: 'center' as const,
@@ -68,7 +76,11 @@ const AppRow: React.FC<AppRowProps> = ({
         marginBottom: mb,
         width: w,
         height: h,
-        alignSelf
+        alignSelf, 
+        marginRight: mr, 
+        marginLeft: ml, 
+        paddingRight: pr, 
+        paddingLeft:pl
     }
 
     return (<View
