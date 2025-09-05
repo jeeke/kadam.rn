@@ -16,8 +16,7 @@ const LoginScreen = () => {
             <AppGradientView  angle={180} useAngle colors={['rgba(0,0,0,0)', 'rgba(7,5,8,0.7)',  'rgba(3,2,3,0.95)', '#030203', 'rgba(0,0,0,0)',]} style={[styles.secondLayerGradient]} />
             <KeyboardAvoidingView
                 style={styles.container}
-                behavior={!isAndroid ? 'height' : undefined}
-                keyboardVerticalOffset={-16}
+                behavior={isAndroid ? 'padding' : 'height'}
             >
                 <StatusBar hidden />
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -37,7 +36,7 @@ export default LoginScreen
 
 const styles = StyleSheet.create({
     wrapper: {
-        position: 'absolute',
+        // position: 'absolute',
         bottom: bottomInsets,
         width: screenWidth,
         paddingHorizontal: 42,
@@ -46,7 +45,7 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1,
-        justifyContent: 'space-between',
+        justifyContent: 'flex-end',
         // backgroundColor: '#250F28'
     }, 
     secondLayerGradient: { 

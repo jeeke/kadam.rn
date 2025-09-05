@@ -8,7 +8,8 @@ import { ThemeIcons } from '@/src/theme/Icons'
 import React, { FC } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const LoginHeader: FC<PropsWithStore<{}>> = () => {
+const LoginHeader: FC<PropsWithStore<{}>> = ({rootStore}) => {
+    const {loginStore} = rootStore!
     const { t } = useTranslation()
     return (
         <AppView gap={0} center>
@@ -17,7 +18,7 @@ const LoginHeader: FC<PropsWithStore<{}>> = () => {
                 {t(Localizations.login.kadam_to_learning)}
             </AppText>
             <AppText mt={8} color={COLORS.textLight} textAlign='center' type={'helveticaMedium16px'}>
-                {t(Localizations.login.login_or_signup)}
+                {t(loginStore.isOtpFetched ? Localizations.login.enter_the_otp :  Localizations.login.login_or_signup)}
             </AppText>
         </AppView>
     )

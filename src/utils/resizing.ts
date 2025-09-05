@@ -60,6 +60,6 @@ export const isAndroid = Platform.OS === 'android'
 // Get Screen Insets for ( Top, Bottom , Left , Right)
 export const screenInsets = initialWindowMetrics?.insets
 
-export const bottomInsets = isAndroid ? (screenInsets?.bottom ?? 0) + 32 : screenInsets?.bottom
+export const bottomInsets = isAndroid ? 20 : screenInsets?.bottom
 
 

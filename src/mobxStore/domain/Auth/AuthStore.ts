@@ -1,4 +1,4 @@
-import { IAuthData } from "@/src/features/Login/models/login.interface";
+
 import { RootStackScreens } from "@/src/navigation/RootStack/types";
 import { clearSecureEntries, saveTokens, saveUser } from "@/src/services/token.service";
 import { resetAndNavigate } from "@/src/utils/NavigationUtils";
@@ -13,7 +13,7 @@ export class AuthStore {
   @observable isLoading: boolean = false;
   @observable error = null;
   @observable isAuthenticated: boolean = false
-  @observable authData: IAuthData | undefined= undefined 
+  @observable authData: any | undefined= undefined 
 
   constructor(rootStore: RootStoreType) {
     this.rootStore = rootStore

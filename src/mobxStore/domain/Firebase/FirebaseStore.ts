@@ -16,7 +16,6 @@ export class FirebaseStore {
   @action
   async fetchRemoteConfig() {
     try {
-     console.error("AFSD000")
       const rc = remoteConfig();
 
       await remoteConfig().setConfigSettings({
@@ -50,7 +49,7 @@ export class FirebaseStore {
       
       initI18n(resources);
 
-      console.error("ppp", this.remoteConfigValues.kadamEN)
+      // console.error("ppp", this.remoteConfigValues.kadamEN)
 
     } catch (error) {
       console.error("Error fetching remote config:", error);

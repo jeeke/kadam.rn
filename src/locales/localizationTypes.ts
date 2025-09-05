@@ -6,7 +6,8 @@ export enum ELocalizationLogin {
     t_c= "t_c", 
     and = "and",
     privacy = "privacy",
-    policy_all_rights_are_reserved_by_Kadam_learning = "policy_all_rights_are_reserved_by_Kadam_learning"
+    policy_all_rights_are_reserved_by_Kadam_learning = "policy_all_rights_are_reserved_by_Kadam_learning", 
+    enter_the_otp = "enter_the_otp"
 }
 
 export const Localizations = {
