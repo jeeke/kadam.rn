@@ -16,7 +16,7 @@ export class FirebaseStore {
   @action
   async fetchRemoteConfig() {
     try {
-     console.error("AFSD")
+     console.error("AFSD000")
       const rc = remoteConfig();
 
       await remoteConfig().setConfigSettings({

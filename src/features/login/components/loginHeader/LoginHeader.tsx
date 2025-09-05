@@ -16,7 +16,7 @@ const LoginHeader: FC<PropsWithStore<{}>> = () => {
             <AppText color={COLORS.textLight} mt={-8} textAlign='center' type={'helveticaRegular38px'}>
                 {t(Localizations.login.kadam_to_learning)}
             </AppText>
-            <AppText color={COLORS.textLight} textAlign='center' type={'helveticaMedium16px'}>
+            <AppText mt={8} color={COLORS.textLight} textAlign='center' type={'helveticaMedium16px'}>
                 {t(Localizations.login.login_or_signup)}
             </AppText>
         </AppView>

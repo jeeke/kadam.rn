@@ -23,7 +23,7 @@ export default function RootStack() {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName={RootStackScreens.Login}>
+      initialRouteName={RootStackScreens.SplashScreen}>
       <Stack.Screen
         name={RootStackScreens.RoughScreen}
         component={RoughScreen}

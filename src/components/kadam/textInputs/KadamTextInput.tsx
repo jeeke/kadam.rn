@@ -1,5 +1,5 @@
 import { COLORS } from '@/src/constants/colors';
-import { screenWidth, verticalScale } from '@/src/utils/resizing';
+import { isAndroid, screenWidth, verticalScale } from '@/src/utils/resizing';
 import React, { ReactNode } from 'react';
 import { StyleSheet, TextInput, TextInputProps, TextStyle } from 'react-native';
 import AppRow, { AppRowProps } from '../../ui/AppRow/AppRow';
@@ -21,7 +21,7 @@ const AppTextInput: React.FC<AppTextInputProps> = ({
         <AppRow  style={[styles.wrapper, StyleSheet.flatten(style),]}>
             {leftChildren && leftChildren}
             <TextInput
-                style={[styles.inputTextStyle, inputStyle,]}
+                style={[styles.inputTextStyle, inputStyle]}
                 cursorColor={ rest?.cursorColor ?? COLORS.white}
                 selectionColor={ rest?.selectionColor ??COLORS.white}
                 placeholderTextColor={ rest?.placeholderTextColor ?? COLORS.textColor_8E8E8E}
@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
        width: (screenWidth-42) , 
        backgroundColor: COLORS.black, 
        paddingHorizontal: 21, 
-       paddingVertical: verticalScale(25), 
+       paddingVertical: verticalScale(isAndroid ? 18: 24), 
        borderRadius: 20, 
        borderWidth:1, 
        borderColor: COLORS.borderColor_2c2c2c, 
@@ -48,6 +48,6 @@ const styles = StyleSheet.create({
         fontFamily: 'HelveticaNowDisplay-Regular',
         color: COLORS.white,
         fontSize: 16,
-        width: '100%'
+         
     }
 })
