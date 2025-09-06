@@ -1,3 +1,4 @@
+import LanguageSelectorScreen from '@/src/features/languageSelector/screens/LanguageSelectorScreen';
 import LoginScreen from '@/src/features/login/screens/LoginScreen';
 import MainScreen from '@/src/screens/MainScreen/MainScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -39,6 +40,10 @@ export default function RootStack() {
       <Stack.Screen
         name={RootStackScreens.SplashScreen}
         component={SplashScreen}
+      />
+      <Stack.Screen
+        name={RootStackScreens.LanguageSelectorScreen}
+        component={LanguageSelectorScreen}
       />
     </Stack.Navigator>
   );

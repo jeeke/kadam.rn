@@ -51,7 +51,7 @@ export const useSplash = (rootStore: RootStoreType) => {
                 try {
                     await rootStore.firebaseStore.fetchRemoteConfig()
                     i18next.changeLanguage(appLanguage);
-                    resetAndNavigate(RootStackScreens.Login)
+                    resetAndNavigate(RootStackScreens.LanguageSelectorScreen)
                 } catch (error) {
                    console.log("Error remote config:", error)
                 }

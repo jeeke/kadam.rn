@@ -1,11 +1,14 @@
+import { ELangugaes } from '@/src/features/languageSelector/models/languageSelector.interface';
 import { initI18n } from '@/src/locales/i18n';
 import remoteConfig from '@react-native-firebase/remote-config';
+import { i18n } from 'i18next';
 import { action, makeAutoObservable, observable } from "mobx";
 import type { RootStoreType } from "../../RootStore";
 
 export class FirebaseStore {
   rootStore: RootStoreType;
-
+  
+  @observable i18nInstance: i18n | undefined = undefined
   @observable remoteConfigValues: Record<string, any> = {}
 
   constructor(rootStore: RootStoreType) {
@@ -43,11 +46,11 @@ export class FirebaseStore {
 
       // Initialize i18n with the fetched resources
       const resources = {
-        en: { translation: this.remoteConfigValues.kadamEN },
-        hi: { translation: this.remoteConfigValues.kadamHI },
+        [ELangugaes.EN]: { translation: this.remoteConfigValues.kadamEN },
+        [ELangugaes.HI]: { translation: this.remoteConfigValues.kadamHI },
       };
       
-      initI18n(resources);
+      this.i18nInstance = initI18n(resources);
 
       // console.error("ppp", this.remoteConfigValues.kadamEN)
 

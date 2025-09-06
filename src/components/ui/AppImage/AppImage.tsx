@@ -25,7 +25,7 @@ const AppImage: React.FC<AppImageProps> = ({
   fallbackSource,
   children,
   aspectRatio,
-  baseWidth = 360,
+  baseWidth = 430,
 }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);

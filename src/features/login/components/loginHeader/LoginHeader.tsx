@@ -14,7 +14,7 @@ const LoginHeader: FC<PropsWithStore<{}>> = ({rootStore}) => {
     return (
         <AppView gap={0} center>
             <ThemeIcons.Login.KadamTextLogo />
-            <AppText color={COLORS.textLight} mt={-8} textAlign='center' type={'helveticaRegular38px'}>
+            <AppText color={COLORS.textLight} mt={0} textAlign='center' type={'helveticaRegular38px'}>
                 {t(Localizations.login.kadam_to_learning)}
             </AppText>
             <AppText mt={8} color={COLORS.textLight} textAlign='center' type={'helveticaMedium16px'}>
