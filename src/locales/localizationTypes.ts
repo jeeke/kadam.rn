@@ -10,6 +10,12 @@ export enum ELocalizationLogin {
     enter_the_otp = "enter_the_otp"
 }
 
+export enum ELocalizationCommon{
+    premium = "premium"
+}
+
+
 export const Localizations = {
     login: ELocalizationLogin,
+    common: ELocalizationCommon, 
 }

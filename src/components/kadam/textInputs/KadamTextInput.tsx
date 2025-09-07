@@ -19,7 +19,7 @@ const AppTextInput = forwardRef<TextInput, AppTextInputProps>(({
     ...rest
 }, ref) => {
     return (
-        <AppRow style={[styles.wrapper, StyleSheet.flatten(style)]}>
+        <AppRow {...rest} style={[styles.wrapper, StyleSheet.flatten(style)]}>
             {leftChildren && leftChildren}
             <TextInput
                 ref={ref}

@@ -6,7 +6,7 @@ import { StyleSheet, View } from 'react-native'
 const MainScreen = () => {
   return (
     <View style={[styles.container]}  >
-      <TabNavigator initialRoute={'Home'} />
+      <TabNavigator initialRoute={'home'} />
     </View>
   )
 }

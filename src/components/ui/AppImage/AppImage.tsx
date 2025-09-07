@@ -1,6 +1,7 @@
+import { screenWidth } from "@/src/utils/resizing";
 import FastImage from "@d11/react-native-fast-image";
 import React, { useState } from 'react';
-import { ActivityIndicator, Dimensions, ImageStyle, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
+import { ActivityIndicator, ImageStyle, StyleProp, StyleSheet, View, ViewStyle } from 'react-native';
 
 type AppImageProps = {
   source: { uri: string } | number;
@@ -13,6 +14,21 @@ type AppImageProps = {
   children?: React.ReactNode;
   aspectRatio?: number; // width/height ratio (e.g., 100/400 = 0.25)
   baseWidth?: number; // defaults to 360
+};
+
+
+ // Calculate dimensions based on aspect ratio and base width
+ export const calculateDimensions = (aspectRatio: number, baseWidth:number = 430) => {
+  if (!aspectRatio) return {};
+  
+  const scaleFactor = screenWidth / baseWidth;
+  const calculatedWidth = baseWidth * scaleFactor;
+  const calculatedHeight = calculatedWidth / aspectRatio;
+
+  return {
+    width: calculatedWidth,
+    height: calculatedHeight,
+  };
 };
 
 const AppImage: React.FC<AppImageProps> = ({
@@ -29,29 +45,13 @@ const AppImage: React.FC<AppImageProps> = ({
 }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-  const { width: screenWidth } = Dimensions.get('window');
-
   const isRemote = typeof source === 'object' && 'uri' in source;
   const imageSource = error && fallbackSource ? fallbackSource : source;
-
-  // Calculate dimensions based on aspect ratio and base width
-  const calculateDimensions = () => {
-    if (!aspectRatio) return {};
-    
-    const scaleFactor = screenWidth / baseWidth;
-    const calculatedWidth = baseWidth * scaleFactor;
-    const calculatedHeight = calculatedWidth / aspectRatio;
-
-    return {
-      width: calculatedWidth,
-      height: calculatedHeight,
-    };
-  };
 
   const imageStyles = [
     styles.image,
     style,
-    aspectRatio ? calculateDimensions() : {},
+    aspectRatio ? calculateDimensions(aspectRatio, baseWidth) : {},
   ];
 
   return (

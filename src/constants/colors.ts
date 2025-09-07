@@ -56,6 +56,8 @@ export const COLORS = {
   borderColor_2c2c2c: '#2C2C2C', 
   borderColor_3E3E3E: '#3E3E3E', 
   borderColor_807F7F: '#807F7F', 
+  borderColor_464646: '#464646', 
+  borderColor_2A2A2A: '#2A2A2A', 
 
   textColor_8E8E8E : '#8E8E8E',
   textColor_717171 : '#717171',

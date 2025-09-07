@@ -1,7 +1,11 @@
 
+import AppPressable from '@/src/components/ui/AppPressable/AppPressable';
+import AppText from '@/src/components/ui/AppText/AppText';
+import { COLORS } from '@/src/constants/colors';
+import { ThemeIcons } from '@/src/theme/Icons';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import React from 'react';
-import { Pressable, StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 const TabItem = ({
     state,
@@ -11,10 +15,11 @@ const TabItem = ({
     index,
 }: BottomTabBarProps & { route: any, index: number }) => {
 
-
     const _tabData = {
-        Home: { icon: '' },
-        Plan: { icon: '' }
+        home: { icon: <ThemeIcons.Tabs.HomeIcon/>, title: 'Home' },
+        library: { icon: <ThemeIcons.Tabs.LibraryIcon/>, title: 'Library'  },
+        premium: {icon: <ThemeIcons.Tabs.PremiumIcon/>, title: 'Premium' }, 
+        profile:{icon: <ThemeIcons.Tabs.UserIcon/>, title: 'Profile' }
     }
 
     const { options } = descriptors[route.key];
@@ -57,9 +62,12 @@ const TabItem = ({
     const TabData = _tabData[label as keyof typeof _tabData]
 
     return (
-        <Pressable onPress={onPress} style={[styles.container]}>
-
-        </Pressable>
+        <AppPressable disabled onPress={onPress} style={[styles.container]}>
+            {TabData.icon}
+         <AppText color={COLORS.white} type={'helveticaRegular12px'} >
+            {TabData.title}
+         </AppText>
+        </AppPressable>
     )
 }
 

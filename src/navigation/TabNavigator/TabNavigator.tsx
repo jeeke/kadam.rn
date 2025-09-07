@@ -6,8 +6,10 @@ import { TabBar } from './components/TabBar';
 const Tabs = createBottomTabNavigator();
 
 export const TabNames = {
-  home:'Home',
-  Plan:'Plan',
+  home: 'home',
+  library: 'library',
+  premium: 'premium',
+  profile: 'profile'
 };
 
 interface Props {
@@ -30,6 +32,9 @@ const TabNavigator = ({ initialRoute }: Props) => {
         />
       )}>
       <Tabs.Screen name={TabNames.home} component={HomeScreen} />
+      <Tabs.Screen name={TabNames.library} component={HomeScreen} />
+      <Tabs.Screen name={TabNames.premium} component={HomeScreen} />
+      <Tabs.Screen name={TabNames.profile} component={HomeScreen} />
     </Tabs.Navigator>
   );
 };

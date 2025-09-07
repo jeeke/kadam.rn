@@ -21,6 +21,7 @@ export interface AppPressableProps extends PressableProps {
   py?: number;
   pt?: number
   pb?: number
+  gap?: number
   style?: ViewStyle | ViewStyle[];
   center?: boolean
 }
@@ -41,6 +42,7 @@ const AppPressable: React.FC<AppPressableProps> = ({
   py,
   pt,
   pb,
+  gap, 
   style,
   center = false,
   ...rest
@@ -63,7 +65,8 @@ const AppPressable: React.FC<AppPressableProps> = ({
     paddingVertical: py,
     paddingBottom: pb,
     paddingTop: pt,
-    alignSelf: 'center'
+    alignSelf: 'center', 
+    gap,
   };
 
   const centerStyle: ViewStyle = center ? { justifyContent: 'center', alignItems: 'center' } : {}
