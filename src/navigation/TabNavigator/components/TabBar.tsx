@@ -12,7 +12,7 @@ export const TabBar = ({
     state,
     ...rest
 }: BottomTabBarProps) => {
-    return <BlurView intensity={10} style={[styles.container,]}>
+    return <BlurView  experimentalBlurMethod={'dimezisBlurView'} tint={'systemUltraThinMaterialDark'} intensity={30} style={[styles.container, {backgroundColor: ''}]}>
         <AppGradientView useAngle angle={180} colors={['#716B77', '#140E18']} style={[styles.gradientBorder]} />
         <AppRow justifyContent={'space-around'} style={{ zIndex: 1, }}>
             {state.routes.map((route: any, index: number) => {
