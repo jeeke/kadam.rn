@@ -5,6 +5,7 @@ type RootStackParamsList = {
   SplashScreen: undefined;
   MainScreen: undefined
   LanguageSelectorScreen: undefined
+  Video: undefined
 };
 
 type RootStackParamList = keyof RootStackParamsList;
@@ -14,5 +15,6 @@ export const RootStackScreens: { [K in RootStackParamList]: K } = {
   RoughScreen: 'RoughScreen',
   SplashScreen: 'SplashScreen',
   MainScreen: 'MainScreen', 
-  LanguageSelectorScreen: 'LanguageSelectorScreen'
+  LanguageSelectorScreen: 'LanguageSelectorScreen',
+  Video: 'Video'
 };

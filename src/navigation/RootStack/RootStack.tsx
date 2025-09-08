@@ -1,6 +1,7 @@
 import LanguageSelectorScreen from '@/src/features/languageSelector/screens/LanguageSelectorScreen';
 import LoginScreen from '@/src/features/login/screens/LoginScreen';
 import MainScreen from '@/src/screens/MainScreen/MainScreen';
+import VideoScreen from '@/src/screens/Video/Video';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React, { useState } from 'react';
 import { useInternetAvailability } from '../../hooks/appConfigs/useInternetAvailability';
@@ -44,6 +45,10 @@ export default function RootStack() {
       <Stack.Screen
         name={RootStackScreens.LanguageSelectorScreen}
         component={LanguageSelectorScreen}
+      />
+      <Stack.Screen
+        name={RootStackScreens.Video}
+        component={VideoScreen}
       />
     </Stack.Navigator>
   );
