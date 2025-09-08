@@ -93,7 +93,7 @@ class ApiWrapper extends BaseHttpClient {
   }
 }
 
-const BASE_URL = "https://warden.alpha.haanaa.org/";
+const BASE_URL = "https://staging-kadam-dq3i.encr.app/";
 export const ApiClient = new ApiWrapper(BASE_URL);
 
 // 'https://pop.alpha.haanaa.org/api/v1/cms/cats?screen_type=home'

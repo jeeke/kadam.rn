@@ -9,17 +9,17 @@ export const getSecureRefreshToken = () => getSecureItem(REFRESH_TOKEN_KEY);
 
 export const saveTokens = async (user: any) => {
     if (user) {
-        if (user.token) {
-            await saveSecureItem(ACCESS_TOKEN_KEY, user.token);
+        if (user.accessToken) {
+            await saveSecureItem(ACCESS_TOKEN_KEY, user.accessToken);
         }
-        if (user.refresh) {
-            await saveSecureItem(REFRESH_TOKEN_KEY, user.refresh);
+        if (user.refreshToken) {
+            await saveSecureItem(REFRESH_TOKEN_KEY, user.refreshToken);
         }
     }
 };
 
 export const saveUser = (user: any) => {
-    const { token, tokenExpiry, refresh, refreshExpiry, ...payload } = user;
+    const { accessToken, tokenExpiry, refreshToken, refreshExpiry, ...payload } = user;
     return saveSecureItem(USER_KEY, JSON.stringify(payload));
 };
 

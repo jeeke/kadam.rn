@@ -50,8 +50,9 @@ export const useLoginActions = ({ rootStore }: { rootStore: RootStoreType }) => 
     }, [loginStore.isOtpFetched])
 
     const handleMobileNumber = useCallback((text: string) => {
-        loginStore.setMobileNumber(text)
-    }, [])
+        const formattedText = text.replace(/[^0-9]/g, '');
+        loginStore.setMobileNumber(formattedText)
+    }, [loginStore.isOtpFetched])
 
     return {
         t, 

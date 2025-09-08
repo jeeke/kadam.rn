@@ -13,7 +13,7 @@ export class AuthStore {
   @observable isLoading: boolean = false;
   @observable error = null;
   @observable isAuthenticated: boolean = false
-  @observable authData: any | undefined= undefined 
+  @observable authData: any | undefined = undefined
 
   constructor(rootStore: RootStoreType) {
     this.rootStore = rootStore
@@ -36,6 +36,11 @@ export class AuthStore {
     }
   }
 
+  @action
+  async saveAuthData(accessToken: string, refreshToken: string) {
+    console.log("DAFS", accessToken)
+    await saveTokens({ accessToken, refreshToken });
+  }
 
   @action
   async logout() {
@@ -54,5 +59,7 @@ export class AuthStore {
       console.error("A+++", error)
     }
   }
+
+
 }
 

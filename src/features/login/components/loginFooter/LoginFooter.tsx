@@ -9,7 +9,7 @@ const LoginFooter = () => {
     const {t} = useTranslation()
   return (
     <AppView mt={20}>
-       <AppText lineHeight={15} type={'helveticaMedium10px'} color={COLORS.textColor_717171} >
+       <AppText textAlign='center' lineHeight={15} type={'helveticaMedium10px'} color={COLORS.textColor_717171} >
             {t(Localizations.login.by_continuing_you_agree_to_our)}
              <AppText type={'helveticaMedium10px'} color={COLORS.white} >
                  {` ${t(Localizations.login.t_c)} `}
