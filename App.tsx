@@ -6,7 +6,6 @@ import React from 'react';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
-import { NetworkLoggerWrapper } from './src/components/tools/Network/NetworkLoggerWrapper';
 import { useApp } from './src/hooks/appConfigs/useApp';
 import RootStack from './src/navigation/RootStack/RootStack';
 import { navigationRef } from './src/utils/NavigationUtils';
