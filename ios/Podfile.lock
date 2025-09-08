@@ -88,6 +88,8 @@ PODS:
     - ExpoModulesCore
   - ExpoSystemUI (5.0.11):
     - ExpoModulesCore
+  - ExpoVideo (2.2.2):
+    - ExpoModulesCore
   - ExpoWebBrowser (14.2.0):
     - ExpoModulesCore
   - fast_float (6.1.4)
@@ -1478,7 +1480,7 @@ PODS:
     - React-jsiexecutor
     - React-RCTFBReactNativeSpec
     - ReactCommon/turbomodule/core
-  - react-native-mmkv (3.3.0):
+  - react-native-mmkv (3.3.1):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -1929,7 +1931,7 @@ PODS:
     - React-utils (= 0.79.6)
   - RNDeviceInfo (14.0.4):
     - React-Core
-  - RNFastImage (8.11.1):
+  - RNFastImage (8.12.0):
     - DoubleConversion
     - glog
     - hermes-engine
@@ -2250,6 +2252,7 @@ DEPENDENCIES:
   - ExpoSplashScreen (from `../node_modules/expo-splash-screen/ios`)
   - ExpoSymbols (from `../node_modules/expo-symbols/ios`)
   - ExpoSystemUI (from `../node_modules/expo-system-ui/ios`)
+  - ExpoVideo (from `../node_modules/expo-video/ios`)
   - ExpoWebBrowser (from `../node_modules/expo-web-browser/ios`)
   - fast_float (from `../node_modules/react-native/third-party-podspecs/fast_float.podspec`)
   - FBLazyVector (from `../node_modules/react-native/Libraries/FBLazyVector`)
@@ -2396,6 +2399,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/expo-symbols/ios"
   ExpoSystemUI:
     :path: "../node_modules/expo-system-ui/ios"
+  ExpoVideo:
+    :path: "../node_modules/expo-video/ios"
   ExpoWebBrowser:
     :path: "../node_modules/expo-web-browser/ios"
   fast_float:
@@ -2584,6 +2589,7 @@ SPEC CHECKSUMS:
   ExpoSplashScreen: 0ad5acac1b5d2953c6e00d4319f16d616f70d4dd
   ExpoSymbols: c5612a90fb9179cdaebcd19bea9d8c69e5d3b859
   ExpoSystemUI: 433a971503b99020318518ed30a58204288bab2d
+  ExpoVideo: ada534976cfd4a6bf082cc61aa1b17920a251e32
   ExpoWebBrowser: dc39a88485f007e61a3dff05d6a75f22ab4a2e92
   fast_float: 06eeec4fe712a76acc9376682e4808b05ce978b6
   FBLazyVector: 07309209b7b914451b8f822544a18e2a0a85afff
@@ -2634,7 +2640,7 @@ SPEC CHECKSUMS:
   React-logger: 1426d04b594a2e68b0ac2add21d45422d06397a3
   React-Mapbuffer: 28c35d4355981ed4a9da6b13bd7f38189533ae05
   React-microtasksnativemodule: e46cff912b07dc383f04715b4225ca131b325a4a
-  react-native-mmkv: 69af18f435f8978ed3e7b8c1b23bba35350ddcd8
+  react-native-mmkv: 5e7896e3de0768080642f8a2d38f1750d464af7f
   react-native-netinfo: cec9c4e86083cb5b6aba0e0711f563e2fbbff187
   react-native-otp-verify: 6d153f8a8e8392c6a51f9d94c090dc16d7c756b2
   react-native-safe-area-context: 5928d84c879db2f9eb6969ca70e68f58623dbf25
@@ -2671,7 +2677,7 @@ SPEC CHECKSUMS:
   ReactCodegen: 3d5c9def468f7df3b90b05d3098ab8d47d76c62e
   ReactCommon: 4c22936ee38ecf885efc95ac5832f430f27e0271
   RNDeviceInfo: d863506092aef7e7af3a1c350c913d867d795047
-  RNFastImage: c5ca10ad4f373954a03b4063eea6af183cedb737
+  RNFastImage: d43fb4ba5f8ae8b19389b478477fddaae2944fea
   RNFBApp: 377c315d7b1bab48a30545644f7c201b0155d32b
   RNFBRemoteConfig: 37b071c4644336e63e10fc62bf1cba5e83940858
   RNGestureHandler: 8ff2b1434b0ff8bab28c8242a656fb842990bbc8

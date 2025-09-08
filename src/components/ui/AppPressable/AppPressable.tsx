@@ -24,10 +24,12 @@ export interface AppPressableProps extends PressableProps {
   gap?: number
   style?: ViewStyle | ViewStyle[];
   center?: boolean
+  disabledAnimation?: boolean
 }
 
 const AppPressable: React.FC<AppPressableProps> = ({
   children,
+  disabledAnimation,
   animationEasing = Easing.ease,
   onPress,
   mt,
@@ -72,8 +74,8 @@ const AppPressable: React.FC<AppPressableProps> = ({
   const centerStyle: ViewStyle = center ? { justifyContent: 'center', alignItems: 'center' } : {}
   return (
     <APressable
-      onPressIn={() => (scale.value = withSpring(0.95, { damping: 10, stiffness: 200 }))}
-      onPressOut={() => (scale.value = withSpring(1, { damping: 10, stiffness: 200 }))}
+      onPressIn={() => !disabledAnimation && (scale.value = withSpring(0.95, { damping: 10, stiffness: 200 }))}
+      onPressOut={() => !disabledAnimation && (scale.value = withSpring(1, { damping: 10, stiffness: 200 }))}
       style={[centerStyle, dynamicStyle, animatedStyle, style]}
       onPress={onPress}
       {...rest}
