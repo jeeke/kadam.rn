@@ -25,9 +25,9 @@ const CategoriesList: FC<PropsWithStore<{}>> = ({ rootStore }) => {
         <AppView style={styles.container}>
             <SectionHeader mt={20} mb={18} title={'Popular Category'} />
             <FlatList
-                data={rootStore.categoriesStore.categories}
+                data={categoriesData}
                 renderItem={({ item }) => <CategoriesItem item={item} />}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => `${item.id}`}
                 numColumns={3}
                 scrollEnabled={false}
                 columnWrapperStyle={styles.columnWrapper}

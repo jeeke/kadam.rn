@@ -15,11 +15,10 @@ import { CARD_HEIGHT, CARD_WIDTH, SPACING, TCarouselItem } from '../InfiniteCaro
 interface CarouselItemProps extends TCarouselItem {
     index: number;
     scrollX: Animated.SharedValue<number>;
-    onPress?: (item: any, index: number) => void
-    item: any
+    onPress?: (item: TCarouselItem, index: number) => void;
 }
 
-export const CarouselItem: FC<CarouselItemProps> = ({ item, onPress, index, scrollX }) => {
+export const CarouselItem: FC<CarouselItemProps> = ({ id, title, description, color, image, onPress, index, scrollX }) => {
     const animatedStyle = useAnimatedStyle(() => {
         // Calculate the position of each item relative to the center
         const inputRange = [
@@ -50,12 +49,12 @@ export const CarouselItem: FC<CarouselItemProps> = ({ item, onPress, index, scro
         };
     });
 
-    const handlePress = useCallback(() => onPress?.(item, index), [])
+    const handlePress = useCallback(() => onPress?.({ id, title, description, color, image }, index), [])
 
     return (
         <AppPressable disabled={!onPress} onPress={handlePress} >
-            <Animated.View style={[styles.item, { backgroundColor: item?.color }, animatedStyle]}>
-                <AppImage resizeMode={'contain'} source={{ uri: item?.image }} style={[{ height: CARD_HEIGHT, width: CARD_WIDTH }]} />
+            <Animated.View style={[styles.item, { backgroundColor: color }, animatedStyle]}>
+                <AppImage resizeMode={'contain'} source={{ uri: image }} style={[{ height: CARD_HEIGHT, width: CARD_WIDTH }]} />
             </Animated.View>
         </AppPressable>
     );

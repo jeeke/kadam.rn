@@ -24,7 +24,13 @@ const ORIGINAL_HEIGHT = 346;
 
 export const CARD_HEIGHT = CARD_WIDTH * (ORIGINAL_HEIGHT / ORIGINAL_WIDTH);
 export const SPACING = 4
-export type TCarouselItem =  {}
+export type TCarouselItem =  {
+    id: number;
+    title: string;
+    description: string;
+    color: string;
+    image: string;
+}
 
 const carouselData = [
     {
@@ -71,14 +77,14 @@ const InfiniteCarousel: FC<IInfiniteCarousel> = ({ style, ...rest }) => {
     function handleScroll(e: NativeSyntheticEvent<NativeScrollEvent>) {
         const offset = e.nativeEvent.contentOffset.x;
         scrollX.value = offset;
-        const index = Math.round(offset / CARD_WIDTH);
+        const index = Math.round(offset / (CARD_WIDTH + SPACING * 2));
         setCurrentIndex(index);
     }
 
     useEffect(() => {
         if (scrollViewRef.current) {
             scrollViewRef.current.scrollTo({
-                x: CARD_WIDTH,
+                x: (CARD_WIDTH + SPACING * 2),
                 animated: false,
             });
         }
@@ -115,17 +121,17 @@ const InfiniteCarousel: FC<IInfiniteCarousel> = ({ style, ...rest }) => {
 
     function handleMomentumScrollEnd(e: NativeSyntheticEvent<NativeScrollEvent>) {
         const offset = e.nativeEvent.contentOffset.x;
-        const index = Math.round(offset / CARD_WIDTH);
+        const index = Math.round(offset / (CARD_WIDTH + SPACING * 2));
 
         if (index === 0) {
             scrollViewRef.current?.scrollTo({
-                x: carouselData.length * CARD_WIDTH,
+                x: carouselData.length * (CARD_WIDTH + SPACING * 2),
                 animated: false
             });
             setCurrentIndex(carouselData.length);
         } else if (index === infiniteData.length - 1) {
             scrollViewRef.current?.scrollTo({
-                x: CARD_WIDTH,
+                x: (CARD_WIDTH + SPACING * 2),
                 animated: false
             });
             setCurrentIndex(1);
@@ -149,15 +155,15 @@ const InfiniteCarousel: FC<IInfiniteCarousel> = ({ style, ...rest }) => {
                 onScroll={handleScroll}
                 showsHorizontalScrollIndicator={false}
                 horizontal
-                snapToInterval={CARD_WIDTH}
-                decelerationRate={'normal'}
+                snapToInterval={CARD_WIDTH + SPACING * 2}
+                decelerationRate={'fast'}
                 style={styles.scrollView}
                 contentContainerStyle={styles.contentContainer}
             >
                 {infiniteData.map((item: TCarouselItem, index) => (
                     <CarouselItem
-                        key={`${index}`}
-                        item={item}
+                        key={`${item.id}-${index}`}
+                        {...item}
                         index={index}
                         scrollX={scrollX}
                         onPress={(item, index)=>{
