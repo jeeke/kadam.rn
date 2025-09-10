@@ -76,9 +76,9 @@ const PageHeaderComponent: FC<PageHeaderProps> = ({
                     goBack()
                 }
             }}>
-                <AppIcon iconCode="arrow-left" iconSet={'Feather'} size={20} color={'#000'} />
+                <AppIcon iconCode="arrow-left" iconSet={'Feather'} size={20} color={'#fff'} />
             </AppPressable>
-           {title && <AppText type={'helveticaBlack20px'} color={'#fff'} style={[styles.title]} >
+           {title && <AppText type={'helveticaMedium20px'} color={'#fff'} style={[styles.title]} >
                 {title}
             </AppText>}
         </AppRow>
@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
     container: {
         marginTop: statusBarHeight,
         padding: 16,
+        paddingHorizontal:27,
         alignItems: 'center',
     },
     title: {

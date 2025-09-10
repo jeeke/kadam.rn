@@ -29,6 +29,5 @@ const styles = StyleSheet.create({
   wrapper: {
     width: screenWidth,   // full device width
     height: screenHeight, // full device height, 
-    alignItems:'center'
   },
 })

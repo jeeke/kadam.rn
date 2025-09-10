@@ -1583,6 +1583,30 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - react-native-stroke-text (1.2.3):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-hermes
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - react-native-webview (13.13.5):
     - DoubleConversion
     - glog
@@ -2296,6 +2320,7 @@ DEPENDENCIES:
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-otp-verify (from `../node_modules/react-native-otp-verify`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
+  - "react-native-stroke-text (from `../node_modules/@charmy.tech/react-native-stroke-text`)"
   - react-native-webview (from `../node_modules/react-native-webview`)
   - React-NativeModulesApple (from `../node_modules/react-native/ReactCommon/react/nativemodule/core/platform/ios`)
   - React-oscompat (from `../node_modules/react-native/ReactCommon/oscompat`)
@@ -2484,6 +2509,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-otp-verify"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
+  react-native-stroke-text:
+    :path: "../node_modules/@charmy.tech/react-native-stroke-text"
   react-native-webview:
     :path: "../node_modules/react-native-webview"
   React-NativeModulesApple:
@@ -2644,6 +2671,7 @@ SPEC CHECKSUMS:
   react-native-netinfo: cec9c4e86083cb5b6aba0e0711f563e2fbbff187
   react-native-otp-verify: 6d153f8a8e8392c6a51f9d94c090dc16d7c756b2
   react-native-safe-area-context: 5928d84c879db2f9eb6969ca70e68f58623dbf25
+  react-native-stroke-text: 14ab1e861cb4b0788c2170acd15c9acd02a33cf6
   react-native-webview: 2489d02c8e729bbd323dcb83ab9ea3b0a150b3f6
   React-NativeModulesApple: 3e3e6bf35c6ba5d0aa785e899087385821fa78bd
   React-oscompat: 56b4766e96b06843a3af49a6763ef40992e720aa

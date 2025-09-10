@@ -1,3 +1,4 @@
+import { CategoryScreen } from '@/src/features/Categories/screens/CategoryScreen';
 import LanguageSelectorScreen from '@/src/features/languageSelector/screens/LanguageSelectorScreen';
 import LoginScreen from '@/src/features/login/screens/LoginScreen';
 import VideoScreen from '@/src/features/Video/Video';
@@ -49,6 +50,10 @@ export default function RootStack() {
       <Stack.Screen
         name={RootStackScreens.Video}
         component={VideoScreen}
+      />
+       <Stack.Screen
+        name={RootStackScreens.CategoryScreen}
+        component={CategoryScreen}
       />
     </Stack.Navigator>
   );

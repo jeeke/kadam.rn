@@ -13,7 +13,7 @@ export type FontWeight =
   | 'regular'
 
 
-export type FontSize = 8 | 10 | 12 | 14 | 16 | 18 | 20 | 24 | 32 | 38 | 40 | 48 | 72;
+export type FontSize = 8 | 10 | 12 | 14 | 16 | 18 | 20 | 24 | 32 | 38 | 40 | 48 | 64 | 72;
 
 export interface TypographyStyle {
   fontSize: number;
@@ -55,6 +55,7 @@ const CUSTOM_LINE_HEIGHTS: Record<FontFamily, Record<FontSize, number>> = {
     38: 38,
     40: 48,
     48: 56,
+    64: 72,
     72: 80,
   }
 };
@@ -97,7 +98,7 @@ function generateFontStyles(
   return styles as Record<FontStyleKey<FontFamily, FontWeight, FontSize>, TypographyStyle>;
 }
 
-const fontSizes: FontSize[] = [8, 10, 12, 14, 16, 18, 20, 24, 32, 38, 40, 48, 72];
+const fontSizes: FontSize[] = [8, 10, 12, 14, 16, 18, 20, 24, 32, 38, 40, 48, 64, 72];
 
 export const fontStyles = {
   ...generateFontStyles('helvetica', fontSizes),

@@ -3,8 +3,8 @@ import AppPressable from '@/src/components/ui/AppPressable/AppPressable';
 import AppText from '@/src/components/ui/AppText/AppText';
 import { COLORS } from '@/src/constants/colors';
 import { RootStackScreens } from '@/src/navigation/RootStack/types';
+import { navigate } from '@/src/utils/NavigationUtils';
 import { screenWidth } from '@/src/utils/resizing';
-import { useNavigation } from '@react-navigation/native';
 import React, { FC } from 'react';
 import { StyleSheet } from 'react-native';
 
@@ -19,9 +19,8 @@ interface ICategoriesItem {
 }
 
 export const CategoriesItem: FC<{ item: ICategoriesItem }> = ({ item }) => {
-    const navigation = useNavigation<any>();
     return (
-        <AppPressable style={styles.container} onPress={() => navigation.navigate(RootStackScreens.Video)} >
+        <AppPressable style={styles.container} onPress={() => navigate(RootStackScreens.CategoryScreen)} >
             <AppText type={'helveticaMedium10px'} color={COLORS.white} >{item.title}</AppText>
             <AppImage source={{ uri: item.image }} style={styles.image} />
         </AppPressable>

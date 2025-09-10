@@ -25,6 +25,7 @@
     "feat": "npx ts-node create-feature.ts"
   },
   "dependencies": {
+    "@charmy.tech/react-native-stroke-text": "^1.2.3",
     "@d11/react-native-fast-image": "^8.11.1",
     "@expo/vector-icons": "^14.1.0",
     "@gorhom/bottom-sheet": "^5.2.6",

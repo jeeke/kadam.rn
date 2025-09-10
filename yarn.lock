@@ -770,6 +770,11 @@
     "@babel/helper-string-parser" "^7.27.1"
     "@babel/helper-validator-identifier" "^7.27.1"
 
+"@charmy.tech/react-native-stroke-text@^1.2.3":
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/@charmy.tech/react-native-stroke-text/-/react-native-stroke-text-1.2.3.tgz#328f39da294b07ec40844c840a687920252e60bb"
+  integrity sha512-TyE4buh+cLgihNknT3Di/npUGtTNERmyCIZCYTmc7DynzXhP8S5zcqrlWnpOHpVaRfg/coHDN3sttjvOuR5Dpg==
+
 "@d11/react-native-fast-image@^8.11.1":
   version "8.12.0"
   resolved "https://registry.yarnpkg.com/@d11/react-native-fast-image/-/react-native-fast-image-8.12.0.tgz#fc5c50e152e8a0ec4eafdf58e07800a2d78159c7"
