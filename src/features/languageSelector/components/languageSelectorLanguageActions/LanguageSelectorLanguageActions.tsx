@@ -7,13 +7,14 @@ import { Localizations } from '@/src/locales/localizationTypes'
 import { PropsWithStore } from '@/src/mobxStore/RootStore'
 import { RootStackScreens } from '@/src/navigation/RootStack/types'
 import { resetAndNavigate } from '@/src/utils/NavigationUtils'
-import { screenInsets, screenWidth } from '@/src/utils/resizing'
+import { screenWidth } from '@/src/utils/resizing'
 import MMKVStorage from '@/src/utils/storages/MMKVStorage/MMKVStorage'
 import React, { FC, useCallback, useState } from 'react'
 import { useTranslation } from 'react-i18next'
-import { ScrollView, StyleSheet } from 'react-native'
+import { ScrollView, StyleSheet, ViewStyle } from 'react-native'
 import { ELangugaes } from '../../models/languageSelector.interface'
 import LanguageSelectorHeader from '../languageSelectorHeader/LanguageSelectorHeader'
+import LanguageSelectorHeaderBottomSheet from '../languageSelectorHeader/LanguageSelectorHeaderBottomSheet'
 import LanguageSelectorLanguageAction from './LanguageSelectorLanguageAction'
 
 const languages = [
@@ -27,7 +28,7 @@ const languages = [
   }
 ]
 
-const LanguageSelectorLanguageActions: FC<PropsWithStore<{}>> = ({ rootStore }) => {
+const LanguageSelectorLanguageActions: FC<PropsWithStore<{ style: ViewStyle | ViewStyle[], handleContinue: VoidFunction, isBottomSheet: boolean }>> = ({ rootStore, style, handleContinue, isBottomSheet = false }) => {
   const { firebaseStore } = rootStore!
   const [selectedLanguage, setSelectedLanguage] = useState(MMKVStorage.mmkvGetItem(MMKV_KEYS.APP_LANGUAGE) || 'en')
   const { t } = useTranslation()
@@ -42,14 +43,21 @@ const LanguageSelectorLanguageActions: FC<PropsWithStore<{}>> = ({ rootStore }) 
   }, []);
 
   const onPressContinue = useCallback(() => {
-    resetAndNavigate(RootStackScreens.Login)
+    if (!!handleContinue) {
+      handleContinue?.()
+    } else {
+      resetAndNavigate(RootStackScreens.Login)
+    }
   }, [])
 
   const selected = useCallback((language: ELangugaes) => selectedLanguage === language, [selectedLanguage])
 
   return (
-    <AppView mt={screenInsets?.top}  >
-      <LanguageSelectorHeader />
+    <AppView style={[StyleSheet.flatten(style)]} >
+      {
+        isBottomSheet ? <LanguageSelectorHeaderBottomSheet /> :
+          <LanguageSelectorHeader />
+      }
       <ScrollView contentContainerStyle={styles.contentContainerStyle}>
         {languages.map((item) => {
           return <LanguageSelectorLanguageAction selected={selected} key={item.key} item={item} onPress={handleSelect} />

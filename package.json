@@ -27,6 +27,7 @@
   "dependencies": {
     "@d11/react-native-fast-image": "^8.11.1",
     "@expo/vector-icons": "^14.1.0",
+    "@gorhom/bottom-sheet": "^5.2.6",
     "@react-native-community/netinfo": "^11.4.1",
     "@react-native-firebase/app": "^23.3.0",
     "@react-native-firebase/remote-config": "^23.3.0",

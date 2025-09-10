@@ -1,4 +1,4 @@
-import { getTokens, saveTokens } from '../services/token.service';
+import { getSecureAccessToken, getTokens, saveTokens } from '../services/token.service';
 import { getDeviceId } from '../utils/deviceUtils';
 import { ApiResponse, BaseApiConfig, BaseHttpClient } from './BaseHttpClient';
 
@@ -27,11 +27,11 @@ class ApiWrapper extends BaseHttpClient {
   }
 
   private async handleLogout() {
-      if (this.logoutHandler) {
-        this.logoutHandler();
-      } else {
-        console.warn('Logout handler not set');
-      }
+    if (this.logoutHandler) {
+      this.logoutHandler();
+    } else {
+      console.warn('Logout handler not set');
+    }
   }
 
   private async setAuthHeaders() {
@@ -42,11 +42,11 @@ class ApiWrapper extends BaseHttpClient {
         config.headers['Device-ID'] = deviceId;
       }
 
-      if (config.skipAuthRefresh) {
-        return config;
-      }
+      // if (config.skipAuthRefresh) {
+      //   return config;
+      // }
 
-      const token = (await getTokens())?.accessToken
+      const token = await getSecureAccessToken()
       if (token) {
         config.headers = config.headers || {};
         config.headers.Authorization = `Bearer ${token}`;

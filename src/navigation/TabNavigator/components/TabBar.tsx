@@ -5,6 +5,7 @@ import AppRow from '@/src/components/ui/AppRow/AppRow';
 import { isAndroid, screenWidth } from '@/src/utils/resizing';
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
 import { BlurView } from 'expo-blur';
+import { useEffect, useState } from 'react';
 import { StyleSheet } from 'react-native';
 import TabItem from './TabItem';
 
@@ -12,11 +13,17 @@ export const TabBar = ({
     state,
     ...rest
 }: BottomTabBarProps) => {
-    return <BlurView  experimentalBlurMethod={'dimezisBlurView'} tint={'systemUltraThinMaterialDark'} intensity={30} style={[styles.container, {backgroundColor: ''}]}>
+    const [s, ss] = useState(false)
+     useEffect(()=>{
+        setTimeout(()=>{
+            ss((p)=> true)
+        },500)
+     },[])
+    return <BlurView key={`${s}`} experimentalBlurMethod={ !s ? 'none' : 'dimezisBlurView'} tint={'systemUltraThinMaterialDark'} intensity={30} style={[styles.container, {backgroundColor: ''}]}>
         <AppGradientView useAngle angle={180} colors={['#716B77', '#140E18']} style={[styles.gradientBorder]} />
         <AppRow justifyContent={'space-around'} style={{ zIndex: 1, }}>
             {state.routes.map((route: any, index: number) => {
-                return <TabItem state={state} {...rest} route={route} index={index} />
+                return <TabItem key={`${index}`} state={state} {...rest} route={route} index={index} />
             })}
         </AppRow>
     </BlurView>

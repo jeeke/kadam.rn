@@ -3,12 +3,13 @@ import AppView from '@/src/components/ui/AppView/AppView'
 import { VynceFontStyle } from '@/src/configs/styles/styles'
 import { COLORS } from '@/src/constants/colors'
 import { ThemeIcons } from '@/src/theme/Icons'
+import { screenInsets } from '@/src/utils/resizing'
 import React from 'react'
 
 const LanguageSelectorHeader = () => {
     return (
         <>
-            <AppView mt={20} alignSelf={'center'} >
+            <AppView mt={screenInsets?.top}  alignSelf={'center'} >
                 <ThemeIcons.Common.LanguageSelectorIcon />
             </AppView>
             <AppText mt={24} textAlign='center' color={COLORS.white} style={[VynceFontStyle, { fontSize: 32 }]}>

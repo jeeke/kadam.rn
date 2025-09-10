@@ -3,6 +3,7 @@ import { action } from "mobx";
 import { AuthenticationAction } from "./base/AuthenticationAction";
 
 import { AuthStore } from "./domain/Auth/AuthStore";
+import { BottomSheetStore } from "./domain/BottomSheet/BottomSheetStore";
 import { CategoriesStore } from "./domain/Categories/CategoriesStore";
 import { FirebaseStore } from "./domain/Firebase/FirebaseStore";
 import { LoginStore } from "./domain/Login/LoginStore";
@@ -14,6 +15,7 @@ export interface IRootStore {
     loginStore: LoginStore;
     userStore: UserStore;
     categoriesStore: CategoriesStore;
+    bottomSheetStore: BottomSheetStore;
 }
 
 export type PropsWithStore<T> = T & {
@@ -29,6 +31,7 @@ class RootStore implements AuthenticationAction {
   stores: any[];
   userStore: UserStore;
   categoriesStore: CategoriesStore;
+  bottomSheetStore: BottomSheetStore;
 
   constructor() {
     this.authStore = new AuthStore(this)
@@ -36,6 +39,7 @@ class RootStore implements AuthenticationAction {
     this.userStore = new UserStore(this);
     this.categoriesStore = new CategoriesStore();
     this.firebaseStore = new FirebaseStore(this)
+    this.bottomSheetStore = new BottomSheetStore();
 
     this.stores = [
       this.authStore,

@@ -10,9 +10,8 @@ const LanguageSelectorScreen = () => {
     return (
         <AppGradientView style={styles.container} colors={['#49235D', '#0F090E']}>
             <StatusBar hidden />
-            <LanguageSelectorBackground/>
-            <LanguageSelectorLanguageActions/>
-            
+            <LanguageSelectorBackground />
+            <LanguageSelectorLanguageActions />
         </AppGradientView>
     )
 }
@@ -23,5 +22,5 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
-   
+
 })

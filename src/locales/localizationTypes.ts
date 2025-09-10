@@ -14,8 +14,13 @@ export enum ELocalizationCommon{
     premium = "premium"
 }
 
+export enum ELocalizationLanguage{
+    select_language = "select_language"
+}
+
 
 export const Localizations = {
     login: ELocalizationLogin,
     common: ELocalizationCommon, 
+    language: ELocalizationLanguage
 }

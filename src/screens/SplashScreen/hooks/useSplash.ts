@@ -21,9 +21,8 @@ export const useSplash = (rootStore: RootStoreType) => {
         try {
             const userToken = await getSecureItem(ACCESS_TOKEN_KEY)
             token = userToken
-            console.log("DSAFkhdasfk", userToken)
+    
         } catch (error) {
-            console.log("error on login", error)
             navigate(RootStackScreens.Login)
         }
     }
@@ -47,8 +46,10 @@ export const useSplash = (rootStore: RootStoreType) => {
 
     const fetchRemoteConfig = async () => {
         try {
+            let time = performance.now()
             await rootStore.firebaseStore.fetchRemoteConfig()
             i18next.changeLanguage(appLanguage || 'en');
+            console.log("jeuu", time - performance.now())
           
         } catch (error) {
             console.log("Error remote config:", error)
