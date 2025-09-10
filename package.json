@@ -67,6 +67,7 @@
     "react-native-otp-verify": "^1.1.8",
     "react-native-radial-gradient": "^1.2.1",
     "react-native-reanimated": "~3.17.4",
+    "react-native-reanimated-carousel": "^4.0.3",
     "react-native-safe-area-context": "5.4.0",
     "react-native-screens": "~4.11.1",
     "react-native-svg": "^15.12.1",
