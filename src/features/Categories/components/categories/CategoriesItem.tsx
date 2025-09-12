@@ -20,7 +20,7 @@ interface ICategoriesItem {
 
 export const CategoriesItem: FC<{ item: ICategoriesItem }> = ({ item }) => {
     return (
-        <AppPressable style={styles.container} onPress={() => navigate(RootStackScreens.CategoryScreen)} >
+        <AppPressable style={styles.container} onPress={() => navigate(RootStackScreens.Video)} >
             <AppText type={'helveticaMedium10px'} color={COLORS.white} >{item.title}</AppText>
             <AppImage source={{ uri: item.image }} style={styles.image} />
         </AppPressable>

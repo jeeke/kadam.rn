@@ -1,4 +1,4 @@
-import CarouselNew from '@/src/components/Carousels/CarouselNew'
+import InfinteCarousel from '@/src/components/Carousels/InfiniteCarousel'
 import BackgroundWrapper from '@/src/components/wrappers/backgroundWrapper/BackgroundWrapper'
 import CategoriesList from '@/src/features/Categories/components/categories/CategoriesList'
 import { isAndroid } from '@/src/utils/resizing'
@@ -13,7 +13,7 @@ const HomeScreen = () => {
       <HomeHeader />
       <ScrollView contentContainerStyle={[styles.contentContainerStyle]} >
         <HomeSearch />
-        <CarouselNew/>
+        <InfinteCarousel/>
         <CategoriesList />
       </ScrollView>
     </BackgroundWrapper>

@@ -4,6 +4,8 @@ import { ISendOtpRequestPayload, IVerifyOtpRequestPayload } from "@/src/features
 import { sendOtp, verifyOtp } from "@/src/features/login/services/login.service";
 import { RootStackScreens } from "@/src/navigation/RootStack/types";
 import { resetAndNavigate } from "@/src/utils/NavigationUtils";
+
+import { parseData } from "@/src/utils/apiUtils";
 import { action, makeAutoObservable, observable } from "mobx";
 import { Keyboard } from "react-native";
 import type { RootStoreType } from "../../RootStore";
@@ -32,10 +34,13 @@ export class LoginStore {
 
   @action
   async callSendOtp() {
+
+
+
     this.isLoading = true
     try {
       const payload: ISendOtpRequestPayload = {
-        phone: this.mobileNumber
+        phone:`+19${this.mobileNumber}`
       }
       await sendOtp(payload)
       this.isOtpFetched = true
@@ -52,15 +57,16 @@ export class LoginStore {
     try {
       Keyboard.dismiss()
       const payload: IVerifyOtpRequestPayload = {
-        phone: this.mobileNumber,
+        phone:`+19${this.mobileNumber}`,
         otp: otp
       }
       const response = await verifyOtp(payload)
-      if (response.data?.data) {
-        const { accessToken, refreshToken, isNewUser } = response.data.data;
-        this.rootStore.userStore.isNewUser = isNewUser
+      const data = parseData(response) // No longer needed
+      if (response) {
+        const { accessToken, refreshToken, isNewUser } = response;
+        this.rootStore.userStore.isNewUser = isNewUser ?? false
         if (accessToken && refreshToken) {
-          
+
           await this.rootStore.authStore.saveAuthData(accessToken, refreshToken);
           await this.rootStore.userStore.fetchUser(1)
           this.isAuthenticated = true;
@@ -80,5 +86,7 @@ export class LoginStore {
     this.isAuthenticated = false;
     this.error = null;
     this.isLoading = false;
+    this.isOtpFetched = false
+    this.mobileNumber = ''
   }
 }

@@ -1,10 +1,9 @@
-import { ApiClient } from "@/src/apiClient/ApiWrapper";
-import { CategoryCoursesApiResponse, PopularCategoriesApiResponse } from "../models/categories.interface";
+import { trpc } from "@/src/trpc/trpcClient";
 
 export const getPopularCategories = async () => {
-    return await ApiClient.get<PopularCategoriesApiResponse>('/courses/popular-categories');
+    return await trpc.course.getAllCategories.query()
 };
 
 export const getCategoryCourses = async (categoryId: number) => {
-    return ApiClient.get<CategoryCoursesApiResponse>(`/courses/category/${categoryId}`);
+    return await trpc.course.getCoursesByCategoryId.query({ categoryId });
 };

@@ -1,123 +1,81 @@
-import { COLORS } from '@/src/constants/colors';
-import React, { FC, useCallback } from 'react';
-import { StyleSheet } from 'react-native';
-import Animated, {
-    Extrapolate,
-    interpolate,
-    useAnimatedStyle,
-    withSpring,
-    withTiming
-} from 'react-native-reanimated';
-import AppImage from '../../ui/AppImage/AppImage';
-import AppPressable from '../../ui/AppPressable/AppPressable';
-import { CARD_HEIGHT, CARD_WIDTH, SPACING, TCarouselItem } from '../InfiniteCarousel';
 
-interface CarouselItemProps extends TCarouselItem {
-    index: number;
-    scrollX: Animated.SharedValue<number>;
-    onPress?: (item: TCarouselItem, index: number) => void;
+
+import { ImageStyle, StyleProp, View } from "react-native";
+import { CarouselRenderItem } from "react-native-reanimated-carousel";
+
+import {
+    ImageSourcePropType,
+    StyleSheet,
+    Text,
+    type ViewProps
+} from "react-native";
+import type { AnimatedProps } from "react-native-reanimated";
+import Animated from "react-native-reanimated";
+
+interface Props extends AnimatedProps<ViewProps> {
+    style?: StyleProp<ImageStyle>;
+    index?: number;
+    rounded?: boolean;
+    source?: ImageSourcePropType;
+    item: any
 }
 
-export const CarouselItem: FC<CarouselItemProps> = ({ id, title, description, color, image, onPress, index, scrollX }) => {
-    const animatedStyle = useAnimatedStyle(() => {
-        // Calculate the position of each item relative to the center
-        const inputRange = [
-            (index - 1) * CARD_WIDTH,
-            index * CARD_WIDTH,
-            (index + 1) * CARD_WIDTH,
-        ];
+interface Options {
+    rounded?: boolean;
+    style?: StyleProp<ImageStyle>;
+}
 
-        // Interpolate scale
-        const scale = interpolate(
-            scrollX.value,
-            inputRange,
-            [0.9, 1, 0.9],
-            Extrapolate.CLAMP
+export const renderItem =
+    ({ rounded = false, style }: Options = {}): CarouselRenderItem<any> =>
+        ({ index, item }: { index: number, item: any }) => (
+            <SlideItem item={item} key={index} index={index} rounded={rounded} style={style} />
         );
 
-        // Interpolate opacity
-        const opacity = interpolate(
-            scrollX.value,
-            inputRange,
-            [1, 1, 1],
-            Extrapolate.CLAMP
-        );
-
-        return {
-            transform: [{ scale }],
-            opacity,
-        };
-    });
-
-    const handlePress = useCallback(() => onPress?.({ id, title, description, color, image }, index), [])
+export const SlideItem: React.FC<Props> = (props) => {
+    const { style, index = 0, rounded = false, testID, item, ...animatedViewProps } = props;
 
     return (
-        <AppPressable disabled={!onPress} onPress={handlePress} >
-            <Animated.View style={[styles.item, { backgroundColor: color }, animatedStyle]}>
-                <AppImage resizeMode={'contain'} source={{ uri: image }} style={[{ height: CARD_HEIGHT, width: CARD_WIDTH }]} />
-            </Animated.View>
-        </AppPressable>
+        <Animated.View testID={testID} style={{ flex: 1, backgroundColor: item, borderRadius: 20 }} {...animatedViewProps}>
+            {/* <Animated.Image
+        style={[style, styles.container, rounded && { borderRadius: 15 }]}
+        source={Images.common.kadamGradientBG}
+        resizeMode="cover"
+      /> */}
+            <View style={styles.overlay}>
+                <View style={styles.overlayTextContainer}>
+                    <Text style={styles.overlayText}>{index}</Text>
+                </View>
+            </View>
+        </Animated.View>
     );
 };
 
-interface PaginationIndicatorProps {
-    index: number;
-    activeIndex: number;
-}
-
-export const PaginationIndicator: FC<PaginationIndicatorProps> = ({ index, activeIndex }) => {
-    const isActive = index === activeIndex;
-
-    const animatedStyle = useAnimatedStyle(() => {
-        return {
-            width: withSpring(isActive ? 26 : 8, { damping: 10, stiffness: 100 }),
-            backgroundColor: withTiming('#fff', { duration: 200 }),
-        };
-    });
-
-    return <Animated.View style={[styles.indicator, animatedStyle]} />;
-};
-
 const styles = StyleSheet.create({
-    item: {
-        width: CARD_WIDTH - SPACING * 2,
-        height: CARD_HEIGHT,
-        marginHorizontal: SPACING,
-        borderRadius: 16,
-        overflow: 'hidden',
-        borderWidth: 2, 
-        borderColor: COLORS.borderColor_2c2c2c
-        
+    container: {
+        width: "100%",
+        height: "100%",
     },
-    image: {
-        width: '100%',
-        height: '70%',
-        resizeMode: 'cover',
+    overlay: {
+        position: "absolute",
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        justifyContent: "center",
+        alignItems: "center",
     },
-    textContainer: {
+    overlayText: {
+        color: "white",
+        fontSize: 20,
+        fontWeight: "bold",
+    },
+    overlayTextContainer: {
+        backgroundColor: "rgba(0, 0, 0, 0.5)",
         padding: 10,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    title: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: '#fff',
-        textShadowColor: 'rgba(0, 0, 0, 0.75)',
-        textShadowOffset: { width: -1, height: 1 },
-        textShadowRadius: 10,
-    },
-    description: {
-        fontSize: 14,
-        color: '#fff',
-        textShadowColor: 'rgba(0, 0, 0, 0.75)',
-        textShadowOffset: { width: -1, height: 1 },
-        textShadowRadius: 10,
-    },
-    indicator: {
-        height: 8,
-        width: 8,
-        borderRadius: 4,
-        marginHorizontal: 4,
+        borderRadius: 10,
+        minWidth: 40,
+        minHeight: 40,
+        justifyContent: "center",
+        alignItems: "center",
     },
 });

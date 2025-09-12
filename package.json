@@ -29,12 +29,14 @@
     "@d11/react-native-fast-image": "^8.11.1",
     "@expo/vector-icons": "^14.1.0",
     "@gorhom/bottom-sheet": "^5.2.6",
+    "@jeeke/kadam-ts": "^1.0.6",
     "@react-native-community/netinfo": "^11.4.1",
     "@react-native-firebase/app": "^23.3.0",
     "@react-native-firebase/remote-config": "^23.3.0",
     "@react-navigation/bottom-tabs": "^7.3.10",
     "@react-navigation/elements": "^2.3.8",
     "@react-navigation/native": "^7.1.6",
+    "@trpc/client": "^11.5.1",
     "axios": "^1.11.0",
     "expo": "~53.0.22",
     "expo-blur": "^14.1.5",
@@ -73,7 +75,8 @@
     "react-native-svg": "^15.12.1",
     "react-native-svg-transformer": "^1.5.1",
     "react-native-web": "~0.20.0",
-    "react-native-webview": "13.13.5"
+    "react-native-webview": "13.13.5",
+    "superjson": "^2.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

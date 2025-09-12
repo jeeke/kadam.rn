@@ -1,10 +1,10 @@
-import { ApiClient } from "@/src/apiClient/ApiWrapper"
-import { IFetchUserResponse, IPatchUserRequestPayload, IPatchUserResponse } from "@/src/models/user/user.interface"
+import { IPatchUserRequestPayload } from "@/src/models/user/user.interface";
+import { trpc } from "@/src/trpc/trpcClient";
 
 export const fetchUserById = (id: number) => {
-    return ApiClient.get<IFetchUserResponse>(`/users/${id}`)
-}
+    return trpc.user.getById.query({ id })
+};
 
 export const patchUser = (id: number, payload: IPatchUserRequestPayload) => {
-    return ApiClient.patch<IPatchUserResponse>(`/users/${id}`, payload)
-}
+    return trpc.user.update.mutate({ id, data: payload });
+};
